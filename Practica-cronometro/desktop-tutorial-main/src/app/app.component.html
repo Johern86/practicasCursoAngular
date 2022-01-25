@@ -1,0 +1,24 @@
+<p class="title">Componente contador</p>
+<app-cronometro [minutes]="0"
+                [segundo]="0"
+                (markTime)="addToTimeStamps($event)"
+                (clearTimeLogs)="clearTimeStamps()"></app-cronometro>
+<div class="container text-center pt-2">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let time of timeStamps">
+        <span>Timer: </span>{{time * 1000 | date:'mm:ss'}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<p class="title"> Componente Acumulador</p>
+<i class = "fa fa-address-book"></i>
+<!--<app-acumulador [cnt]="150" [acm]="3"></app-acumulador>-->
+<app-acumulador  [acm]="10" (evtClick)="insertLogAcumulador($event)"></app-acumulador>
+<ul class="list-group">
+  <ul class="list-group-item" *ngFor="let log of logAcumulador">
+    {{log}}
+  </ul>
+</ul>
